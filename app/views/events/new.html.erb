@@ -1,0 +1,37 @@
+nouvelle event
+<%= form_tag('/events', {:method =>'post'}) do %>
+
+<div class="field">
+
+  <%= label_tag(:title, "Titre :") %><br/>
+  <%= text_field_tag(:title) %>
+ 
+
+</div>
+
+<div class="field">
+
+	<%= label_tag(:description, "Description : ") %><br/>
+  <%= text_field_tag(:description) %>
+
+</div>
+
+<div class="field">
+ <%= label_tag(:start_date, "Date de debut :") %><br/>
+  <%= date_field_tag(:start_date) %>
+</div>
+
+<div class="field">
+ <%= label_tag(:price, "Prix :") %><br/>
+  <%= text_field_tag(:price) %>
+</div>
+
+<div class="field">
+ <%= label_tag(:length, "Duree :") %><br/>
+  <%= text_field_tag(:length) %>
+</div>
+
+
+
+ <%= submit_tag("Creer") %>
+<% end -%>

@@ -1,0 +1,42 @@
+
+<%= form_tag url_for(action: 'update'), method: "patch" do %>
+
+    <%= label_tag :title, 'Titre : ' %>
+    <%= text_field_tag :title, "#{@Current_event.title}" %>
+    <br /> <br />
+
+    <%= label_tag :description, 'description : ' %>
+    <%= text_field_tag :description, "#{@Current_event.description}" %>
+    <br /> <br />
+
+<%= label_tag :start_date, 'Debute le : ' %>
+    <%= text_field_tag :start_date, "#{@Current_event.start_date}" %>
+    <br /> <br />
+
+<%= label_tag :length, 'Durée : ' %>
+    <%= text_field_tag :length, "#{@Current_event.length}" %>
+    <br /> <br /> 
+
+
+<%= label_tag :price, 'Prix : ' %>
+    <%= text_field_tag :price, "#{@Current_event.price}" %>
+    <br /> <br /> 
+
+
+<div class="field">
+
+  <%= hidden_field_tag(:id_event,  "#{@Current_event.id}" ) %>
+</div>
+
+
+
+
+
+
+
+
+    <br /> <br />
+    <%= submit_tag "Modifier" %>
+  
+<% end %>
+  

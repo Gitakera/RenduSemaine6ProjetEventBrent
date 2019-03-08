@@ -1,0 +1,44 @@
+Titre :
+<%= @UnEvent.title%><br/>
+description
+<%= @UnEvent.description%><br/>
+durée
+<%= @UnEvent.length%><br/>
+date
+<%= @UnEvent.start_date%><br/>
+prix
+<%= @UnEvent.price%><br/>
+nombre de participants
+<%=@nbr_inscrit%><br/>
+
+
+
+
+<%if current_user.id == @UnEvent.users_id %>
+	<a href="/events/<%=@UnEvent.id%>/edit">Modifier</a>
+	<a href="/supev/<%=@UnEvent.id%>">Supprimer</a>
+<%end%>
+
+
+
+<%if ((@EstInscrit) || (@UnEvent.users_id == current_user.id)) %>
+	
+<%else%>
+	<a href="/inscription/<%=@UnEvent.id%>">S'inscrire</a>
+<%end%>
+dddd
+<br/><br/>
+liste des invités
+<%@ListeInvité.each do |var|%>
+	Prenom<br/>
+	<%=var.first_name%><br/>
+	Nom<br/>
+	<%=var.last_name%><br/>
+	description<br/>
+	<%=var.description%><br/>
+	email<br/>
+	<%=var.email%><br/>
+
+	<hr/>
+<%end%>
+

@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="flex-center">
+    <div class="card" style="width:44%;">
+      <h5 class="card-header info-color white-text text-center py-4">
+        <strong>S'inscrire</strong>
+      </h5>
+
+      <div class="card-body px-lg-5 pt-0">
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      
+      <%= render "devise/shared/error_messages", resource: resource, class: "alert alert-danger", role: "alert" %>
+      
+      <div class="form-row">
+                <div class="col">
+                    <!-- First name -->
+                    <div class="md-form">
+                        <%= f.label :Prénom %>
+                        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class:"form-control"%>
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- Last name -->
+                    <div class="md-form">
+                        <%= f.label :Nom %>
+                        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class:"form-control"%>
+                    </div>
+               </div>
+        </div>
+
+      <div class="md-form">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control" %>
+      </div>
+
+      <div class="md-form">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "new-password",class: "form-control" %>
+        <% if @minimum_password_length %>
+        <small class="form-text text-muted mb-4">(<%= @minimum_password_length %> characters minimum)</small>
+        <% end %>
+        
+        
+      </div>
+
+      <div class="md-form">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up", class: "btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+  </div>
+  </div>
+</div>

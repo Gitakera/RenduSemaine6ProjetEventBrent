@@ -1,0 +1,25 @@
+<!-- 	<p> -->
+<%=%>
+
+<center>====================FOLLOWING EVENT NEED YOUR APPROBATION======================<center/>
+
+
+
+
+<%@event_tobevalidated.each do |a|%>
+
+Titre : 
+	<%=a.title%><br/>
+Description : 
+	<%=a.description%><br/>
+Debut : 
+	<%=a.start_date%><br/>
+Durée :
+	<%=a.length%><br/>
+Prix : 
+	<%=a.price%><br/>
+
+<a href="/admin/show/<%=a.id%>">Valider</a>
+<a href="/admin/delete_event/<%=a.id%>">supprimer</a>
+<hr>
+<%end%>

@@ -1,0 +1,35 @@
+<%if @user.avatar.attached?%>
+  <%= image_tag @user.avatar, alt: 'Photo de profil' %>
+<%end%>
+prénom, nom, description<br/><br/>
+Prenom :
+<%=current_user.first_name%><br/>
+Nom :
+<%=current_user.last_name%><br/>
+Email :
+<%=current_user.email%><br/>
+Description :
+<%=current_user.description%><br/>
+<a href="/utilisateur/<%= current_user.id %>/edit" type="button" class="btn btn-primary">Editer Profil</a>
+<a href="/utilisateur/<%= current_user.id %>" type="button" class="btn btn-danger" data-confirm = "Etes vous sur?"data-method="DELETE"">Supprimer</a>
+
+<br/><br/><br/>	
+Mes event ::==========================<br/>
+<% @EvenementCree.each do |event| %>
+	<%= event.title  %><br/>
+	<%= event.location%><br/>
+	<%= event.start_date%><br/>
+	<%= event.description%><br/>
+	<%= event.length%><br/>
+	<%= event.price%><br/>
+<% end %>
+<br>
+
+devise update
+
+
+suprimer mon compte
+
+
+editer nom, prenom, description
+

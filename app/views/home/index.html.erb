@@ -1,0 +1,27 @@
+En arrivant sur la page d'accueil, un visiteur a accès aux événements qu'il a cree .
+
+
+ la liste des invités en option click
+
+ <% @EvenementTout.reverse.each do |i| %>
+ <a href="/events/<%=i.id%>"><br/>
+ 	Titre: <%=i.title%><br/>
+      Description : <%=i.description%><br/>
+       Date prevu : <%=i.start_date%><br/>
+      Prix : <%=i.price%><br/>
+      
+       Durée : 
+       <% if i.length != nil
+       	 duree = (i.length/60) 
+       	 else
+       	 	duree = 0
+       	 end%> 
+
+       <%=duree%> minutes<br/>
+ </a>
+ <% if (current_user.id == i.users_id)%>
+      <a href="/events/<%=i.id%>/edit">Modifier</a>
+
+<% end %>
+<hr/>
+  <%end%>

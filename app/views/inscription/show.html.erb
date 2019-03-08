@@ -1,0 +1,29 @@
+
+Vos coordonnées : <br/>
+
+Prenom: 
+<%=current_user.first_name%><br/>
+Nom : 
+<%=current_user.last_name%><br/>
+
+Numero de carte : 4242 4242 4242 4242 /123 pour l'inscription à l'evenement : "<%=@event_name %>"<br/>
+
+<%= form_tag charges_path do %>
+ <%= hidden_field_tag :hidden, "#{ params[:id]}"%>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Montant à payer: $5.00</span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="500"
+          data-locale="auto"></script>
+<% end %>

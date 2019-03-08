@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Uuf</title>
+    <link rel="stylesheet" type="text/css" href="/assets/semantic.min.css">
+    <ul>
+  <% if user_signed_in? %>
+    <li>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    </li>
+    <li>
+      Voici ton email : <%= current_user.email %>
+    </li>
+
+
+
+
+<%if(current_user.status == "admin")%>
+    <li>
+      <%= link_to "Espace administrateur", "/admin/dashboard" %>
+    </li>
+<%end%>   
+      <li>
+      <%= link_to "Acceuil", home_index_path %>
+    </li>
+
+     <li>
+      <%= link_to "créer un événement", new_event_path %>
+    </li>
+    <li>
+      <a href="/utilisateur/<%=current_user.id%>">Mon profil</a>
+    </li>
+
+
+      <%= link_to "Edit email / password", edit_user_registration_path %>
+    </li>
+
+
+
+  <% else %>
+    <li>    
+      <%= link_to "Sign in", new_user_session_path %>
+    </li>
+    <li>
+      <%= link_to "Sign up", new_user_registration_path %>
+    </li>
+  <% end %>
+  </ul>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>  
+
+
+    <%= yield %>
+    <script type="text/javascript" src="/assets/semantic.min.js"></script>
+  </body>
+</html>
+
+
+<!-- event title:string description:string start_date:datetime length:integer price:integer -->

@@ -1,0 +1,35 @@
+
+<%= form_tag url_for(action: 'update'), method: "patch", multipart: true do %>
+
+
+
+
+
+<%if @user.avatar.attached?%>
+  <%= image_tag @user.avatar, alt: 'Photo de profil' %>
+  <%= file_field_tag :avatar %>
+
+ 
+<%else%>
+  <p>  
+      <%= file_field_tag :avatar %>
+     
+  </p>
+<%end%>
+
+
+
+    <%= label_tag :last_name, 'Nom' %>
+    <%= text_field_tag :last_name, "#{@user.last_name}" %>
+    <br /> <br />
+    <%= label_tag :first_name, 'Prénom' %>
+    <%= text_field_tag :first_name, "#{@user.first_name}" %>
+    <br /> <br />
+  	<%= label_tag :description, 'Description' %>
+    <%= text_field_tag :description, "#{@user.description}" %>
+    <br /> <br />
+   
+       <%= submit_tag "Modifier" %>
+  
+<% end %>
+  

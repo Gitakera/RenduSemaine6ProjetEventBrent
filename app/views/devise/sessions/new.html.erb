@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="flex-center">
+  <div class="card" style="width:44%;">
+    <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Connexion</strong>
+    </h5>
+
+    <div class="card-body px-lg-5 pt-0">
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="md-form">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control"%>
+        </div>
+
+        <div class="md-form">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password",class:"form-control" %>
+        </div>
+        <div class="d-flex justify-content-around">
+          <div>
+          <% if devise_mapping.rememberable? %>
+            <div class="form-check">
+              <%= f.check_box :remember_me,class:"form-check-input" %>
+              <%= f.label :remember_me,class:"form-check-label" %>
+            </div>
+          <% end %>
+          </div>
+        </div>
+        <div class="actions">
+          <%= f.submit "Connecter", class:"btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+  </div>
+</div>
