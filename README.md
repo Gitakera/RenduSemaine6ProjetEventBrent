@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Projet : EventBrent_Rendu_SemaineVI_J1-5
 
-Things you may want to cover:
+Les fonctionnalités suivantes sont integrées dans cette application:
 
-* Ruby version
+* Envoye de mail automatique à l'inscription (API SendGrid avec le mailer de rails)
 
-* System dependencies
+* Gestion des login/out/Sign_up/unsubscribe, recupération de mots de passe, droit d'accés au contenu (sous le gem Devise)
 
-* Configuration
+*  Un système de paiement dans une application grâce à Stripe, un fantastique service de paiement par carte bleue (pour être inscrit à un evenement).
 
-* Database creation
+* Asset Pipeline & Active Storage : integration de template (dans la version futur) , upload de fichier (ex: photo)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Une espace administrateur :  validation des evenements
